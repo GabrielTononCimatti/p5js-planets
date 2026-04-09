@@ -20,9 +20,21 @@ function draw()
   starsDraw()
   Line.draw()
   
-  for(let planet of planets)
-  {
-    planet.draw()    
+  // Integração Síncrona: Separa o cálculo da física do movimento
+  for(let planet of planets) {
+    if(planet.active) planet.resetForce();
+  }
+  for(let planet of planets) {
+    if(planet.active) planet.calcForces();
+  }
+  for(let planet of planets) {
+    if(planet.active) planet.bounce();
+  }
+  for(let planet of planets) {
+    if(planet.active) planet.move();
+  }
+  for(let planet of planets) {
+    planet.draw();
   }
 }
 

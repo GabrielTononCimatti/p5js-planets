@@ -1,9 +1,11 @@
 class Vector{
-  constructor(Id, origemX, origemY, fimX, fimY, massa1, massa2)
+  constructor(Id, origemX, origemY, fimX, fimY, massa1, massa2, radius1=10, radius2=10)
   {
     this.Id=Id
     this.massa1=massa1
     this.massa2=massa2
+    this.radius1=radius1
+    this.radius2=radius2
     this.origemX=origemX
     this.origemY=origemY
     this.fimX=fimX
@@ -22,6 +24,10 @@ class Vector{
   moduleCalc()
   {
     this.module=sqrt((this.distanceX)**2+(this.distanceY)**2) 
+    let minDist = this.radius1 + this.radius2;
+    if (this.module < minDist) {
+      this.module = minDist;
+    }
   }
   
   phaseCalc()
