@@ -1,7 +1,9 @@
-let screenWidth=2000, screenHeight=2000
+let screenWidth, screenHeight
 let planets=[]
 let starsX=[], starsY=[]
 function setup() {
+  screenWidth = windowWidth;
+  screenHeight = windowHeight;
   Util.screenWidth=screenWidth
   Util.screenHeight=screenHeight
   createCanvas(screenWidth, screenHeight);
@@ -66,4 +68,12 @@ function mouseWheel(event)
   {
     planet.mouseWheel(event)    
   }
+}
+
+function windowResized() {
+  screenWidth = windowWidth;
+  screenHeight = windowHeight;
+  Util.screenWidth = screenWidth;
+  Util.screenHeight = screenHeight;
+  resizeCanvas(screenWidth, screenHeight);
 }
