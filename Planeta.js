@@ -14,6 +14,9 @@ class Planeta {
     this.accelY = 0
     this.velX = 0
     this.velY = 0
+    this.colorR = random(50, 160)
+    this.colorG = random(50, 160)
+    this.colorB = random(50, 160)
   }
 
   resetForce() {
@@ -34,7 +37,7 @@ class Planeta {
 
   draw() {
     stroke(255)
-    fill(0, 0, 255)
+    fill(this.colorR, this.colorG, this.colorB)
     circle(this.posX, this.posY, 2 * this.radius)
     fill(255)
     Util.write(this.Id, this.posX + 10, this.posY + 10)
